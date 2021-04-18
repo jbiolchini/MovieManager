@@ -117,12 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RTBAbout.Text" xml:space="preserve">
-    <value>Movie Manager Application
-
-In West Philladelphia born and raised, on a playground is how I spent most of my days, chilling out loading and codingasl;kdfjasldfjas;ldfja;lsfjkas;ljfa;lsjdfs;alkjfd;ldjfa;ldkjf;dlaksjfa;lsjdkfsa
-Author:		George &amp; Nick
-Date:		04/16/2021
-Version:		0.1</value>
-  </data>
 </root>
