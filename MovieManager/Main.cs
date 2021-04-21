@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace MovieManager
 {
@@ -15,6 +16,21 @@ namespace MovieManager
         public FormMain()
         {
             InitializeComponent();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(
+                @"Data Source=coursemaster1.csbchotp6tva.us-east-2.rds.amazonaws.com,1433;Initial Catalog=CSCI1630;User ID=rw1630;Password=Project!;"))
+                {
+                    connection.Open();
+                    
+                }
+                MessageBox.Show("Successfully opened the database.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Something went wrong while opening a connection tothe database: { ex.Message }");
+            }
+            
         }
 
         //Launches instance of Add Movie Form when Maintenance-> Add Movie is clicked in menu
@@ -23,7 +39,7 @@ namespace MovieManager
             FormAddMovie addMovie = new FormAddMovie();
             addMovie.ShowDialog();
         }
-
+         
         //Launches instance of Update Movie form when Maintenance->Update Movie is clicked in menu
         private void menuItemUpdateMovie_Click(object sender, EventArgs e)
         {
