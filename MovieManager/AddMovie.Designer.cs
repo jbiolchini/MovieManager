@@ -36,16 +36,16 @@ namespace MovieManager
             this.labelGenre = new System.Windows.Forms.Label();
             this.labelTomatoes = new System.Windows.Forms.Label();
             this.labelBoxOffice = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbMovieTitleAdd = new System.Windows.Forms.TextBox();
+            this.tbYearAdd = new System.Windows.Forms.TextBox();
+            this.tbDirectorAdd = new System.Windows.Forms.TextBox();
+            this.tbRottenTomatoesScoreAdd = new System.Windows.Forms.TextBox();
+            this.tbBoxOfficeEarningsAdd = new System.Windows.Forms.TextBox();
+            this.comboBoxGenreAdd = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btAdd = new System.Windows.Forms.Button();
-            this.btClearAdd = new System.Windows.Forms.Button();
             this.btCloseAdd = new System.Windows.Forms.Button();
+            this.btClearAdd = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,50 +120,50 @@ namespace MovieManager
             this.labelBoxOffice.TabIndex = 6;
             this.labelBoxOffice.Text = "Box Office Earnings";
             // 
-            // textBox1
+            // tbMovieTitleAdd
             // 
-            this.textBox1.Location = new System.Drawing.Point(146, 55);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(254, 20);
-            this.textBox1.TabIndex = 7;
+            this.tbMovieTitleAdd.Location = new System.Drawing.Point(146, 55);
+            this.tbMovieTitleAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.tbMovieTitleAdd.Name = "tbMovieTitleAdd";
+            this.tbMovieTitleAdd.Size = new System.Drawing.Size(254, 20);
+            this.tbMovieTitleAdd.TabIndex = 7;
             // 
-            // textBox2
+            // tbYearAdd
             // 
-            this.textBox2.Location = new System.Drawing.Point(146, 105);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(76, 20);
-            this.textBox2.TabIndex = 8;
+            this.tbYearAdd.Location = new System.Drawing.Point(146, 105);
+            this.tbYearAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.tbYearAdd.Name = "tbYearAdd";
+            this.tbYearAdd.Size = new System.Drawing.Size(76, 20);
+            this.tbYearAdd.TabIndex = 8;
             // 
-            // textBox3
+            // tbDirectorAdd
             // 
-            this.textBox3.Location = new System.Drawing.Point(146, 155);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 20);
-            this.textBox3.TabIndex = 9;
+            this.tbDirectorAdd.Location = new System.Drawing.Point(146, 155);
+            this.tbDirectorAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.tbDirectorAdd.Name = "tbDirectorAdd";
+            this.tbDirectorAdd.Size = new System.Drawing.Size(150, 20);
+            this.tbDirectorAdd.TabIndex = 9;
             // 
-            // textBox4
+            // tbRottenTomatoesScoreAdd
             // 
-            this.textBox4.Location = new System.Drawing.Point(189, 251);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(107, 20);
-            this.textBox4.TabIndex = 10;
+            this.tbRottenTomatoesScoreAdd.Location = new System.Drawing.Point(189, 251);
+            this.tbRottenTomatoesScoreAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.tbRottenTomatoesScoreAdd.Name = "tbRottenTomatoesScoreAdd";
+            this.tbRottenTomatoesScoreAdd.Size = new System.Drawing.Size(107, 20);
+            this.tbRottenTomatoesScoreAdd.TabIndex = 10;
             // 
-            // textBox5
+            // tbBoxOfficeEarningsAdd
             // 
-            this.textBox5.Location = new System.Drawing.Point(404, 251);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(127, 20);
-            this.textBox5.TabIndex = 11;
+            this.tbBoxOfficeEarningsAdd.Location = new System.Drawing.Point(404, 251);
+            this.tbBoxOfficeEarningsAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.tbBoxOfficeEarningsAdd.Name = "tbBoxOfficeEarningsAdd";
+            this.tbBoxOfficeEarningsAdd.Size = new System.Drawing.Size(127, 20);
+            this.tbBoxOfficeEarningsAdd.TabIndex = 11;
             // 
-            // comboBox1
+            // comboBoxGenreAdd
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxGenreAdd.FormattingEnabled = true;
+            this.comboBoxGenreAdd.Items.AddRange(new object[] {
             "Animation",
             "Action",
             "Comedy",
@@ -173,11 +173,11 @@ namespace MovieManager
             "Romance",
             "Science Fiction",
             "Western"});
-            this.comboBox1.Location = new System.Drawing.Point(146, 205);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 21);
-            this.comboBox1.TabIndex = 12;
+            this.comboBoxGenreAdd.Location = new System.Drawing.Point(146, 205);
+            this.comboBoxGenreAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxGenreAdd.Name = "comboBoxGenreAdd";
+            this.comboBoxGenreAdd.Size = new System.Drawing.Size(150, 21);
+            this.comboBoxGenreAdd.TabIndex = 12;
             // 
             // panel1
             // 
@@ -190,24 +190,6 @@ namespace MovieManager
             this.panel1.Size = new System.Drawing.Size(576, 57);
             this.panel1.TabIndex = 13;
             // 
-            // btAdd
-            // 
-            this.btAdd.Location = new System.Drawing.Point(5, 18);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(75, 23);
-            this.btAdd.TabIndex = 0;
-            this.btAdd.Text = "Add";
-            this.btAdd.UseVisualStyleBackColor = true;
-            // 
-            // btClearAdd
-            // 
-            this.btClearAdd.Location = new System.Drawing.Point(105, 18);
-            this.btClearAdd.Name = "btClearAdd";
-            this.btClearAdd.Size = new System.Drawing.Size(75, 23);
-            this.btClearAdd.TabIndex = 1;
-            this.btClearAdd.Text = "Clear";
-            this.btClearAdd.UseVisualStyleBackColor = true;
-            // 
             // btCloseAdd
             // 
             this.btCloseAdd.Location = new System.Drawing.Point(487, 18);
@@ -218,18 +200,37 @@ namespace MovieManager
             this.btCloseAdd.UseVisualStyleBackColor = true;
             this.btCloseAdd.Click += new System.EventHandler(this.btCloseAdd_Click);
             // 
+            // btClearAdd
+            // 
+            this.btClearAdd.Location = new System.Drawing.Point(105, 18);
+            this.btClearAdd.Name = "btClearAdd";
+            this.btClearAdd.Size = new System.Drawing.Size(75, 23);
+            this.btClearAdd.TabIndex = 1;
+            this.btClearAdd.Text = "Clear";
+            this.btClearAdd.UseVisualStyleBackColor = true;
+            this.btClearAdd.Click += new System.EventHandler(this.btClearAdd_Click);
+            // 
+            // btAdd
+            // 
+            this.btAdd.Location = new System.Drawing.Point(5, 18);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(75, 23);
+            this.btAdd.TabIndex = 0;
+            this.btAdd.Text = "Add";
+            this.btAdd.UseVisualStyleBackColor = true;
+            // 
             // FormAddMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboBoxGenreAdd);
+            this.Controls.Add(this.tbBoxOfficeEarningsAdd);
+            this.Controls.Add(this.tbRottenTomatoesScoreAdd);
+            this.Controls.Add(this.tbDirectorAdd);
+            this.Controls.Add(this.tbYearAdd);
+            this.Controls.Add(this.tbMovieTitleAdd);
             this.Controls.Add(this.labelBoxOffice);
             this.Controls.Add(this.labelTomatoes);
             this.Controls.Add(this.labelGenre);
@@ -237,7 +238,7 @@ namespace MovieManager
             this.Controls.Add(this.labelYear);
             this.Controls.Add(this.labelMovieTitle);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAddMovie";
             this.Text = "Add Movie";
             this.panel1.ResumeLayout(false);
@@ -255,12 +256,12 @@ namespace MovieManager
         private System.Windows.Forms.Label labelGenre;
         private System.Windows.Forms.Label labelTomatoes;
         private System.Windows.Forms.Label labelBoxOffice;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tbMovieTitleAdd;
+        private System.Windows.Forms.TextBox tbYearAdd;
+        private System.Windows.Forms.TextBox tbDirectorAdd;
+        private System.Windows.Forms.TextBox tbRottenTomatoesScoreAdd;
+        private System.Windows.Forms.TextBox tbBoxOfficeEarningsAdd;
+        private System.Windows.Forms.ComboBox comboBoxGenreAdd;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btCloseAdd;
         private System.Windows.Forms.Button btClearAdd;
