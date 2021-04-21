@@ -16,5 +16,10 @@ namespace MovieManager
         {
             InitializeComponent();
         }
+
+        private void btCloseAdd_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
