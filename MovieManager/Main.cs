@@ -11,18 +11,23 @@ using System.Data.SqlClient;
 
 namespace MovieManager
 {
+    
     public partial class FormMain : Form
     {
+        SqlConnection connection = ConnectToDB();
+
         public FormMain()
         {
+
             InitializeComponent();
+
+            /*
             try
             {
                 using (SqlConnection connection = new SqlConnection(
                 @"Data Source=coursemaster1.csbchotp6tva.us-east-2.rds.amazonaws.com,1433;Initial Catalog=CSCI1630;User ID=rw1630;Password=Project!;"))
                 {
                     connection.Open();
-                    
                 }
                 MessageBox.Show("Successfully opened the database.");
             }
@@ -30,8 +35,10 @@ namespace MovieManager
             {
                 MessageBox.Show($"Something went wrong while opening a connection tothe database: { ex.Message }");
             }
+            */
             
         }
+
 
         //Launches instance of Add Movie Form when Maintenance-> Add Movie is clicked in menu
         private void addMovieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,9 +69,24 @@ namespace MovieManager
         //Closes the program when File->Exit is clicked
         private void menuItemExit_Click(object sender, EventArgs e)
         {
+            connection.Close();
+            MessageBox.Show("Succesfully closed database");
             Close();
         }
-
        
+        public static SqlConnection ConnectToDB()
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=coursemaster1.csbchotp6tva.us-east-2.rds.amazonaws.com,1433;Initial Catalog=CSCI1630;User ID=rw1630;Password=Project!;");
+            try
+            {
+                connection.Open();
+                MessageBox.Show("Opened Database");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Something went wrong while opening a connection tothe database: { ex.Message }");
+            }
+            return connection;
+        }
     }
 }
