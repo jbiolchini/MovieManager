@@ -16,5 +16,24 @@ namespace MovieManager
         {
             InitializeComponent();
         }
+
+        //Clear Add Form Text fields
+        private void btClearAdd_Click(object sender, EventArgs e)
+        {
+            tbMovieTitleAdd.Text = "";
+            tbYearAdd.Text = "";
+            tbDirectorAdd.Text = "";
+            tbRottenTomatoesScoreAdd.Text = "";
+            comboBoxGenreAdd.ResetText();
+            tbBoxOfficeEarningsAdd.Text = "";
+        }
+
+        //Close Add Form
+        private void btCloseAdd_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
     }
 }
