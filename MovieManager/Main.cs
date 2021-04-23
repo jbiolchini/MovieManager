@@ -14,19 +14,21 @@ namespace MovieManager
     
     public partial class FormMain : Form
     {
+        string populateString = "SELECT Id, Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title";
         public FormMain()
         {
             InitializeComponent();
-
             // Initial Population of DataGridView
-            List<Movie> movies = GetMovieData();
+            Movie movie = new Movie();
+            List<Movie> movies = movie.GetMovieData(populateString);
             DGVMain.DataSource = movies;
         }
 
         // Refresh list of movies in DataGridView
         private void menuItemRefresh_Click(object sender, EventArgs e)
         {
-            List<Movie> movies = GetMovieData();
+            Movie movie = new Movie();
+            List<Movie> movies = movie.GetMovieData(populateString);
             DGVMain.DataSource = movies;
         }
 
@@ -63,7 +65,7 @@ namespace MovieManager
         }
        
         // DataGridView Population Methods
-        public List<Movie> GetMovieData()
+       /* public List<Movie> GetMovieData()
         {
             List<Movie> movies = new List<Movie>();
             try
@@ -110,6 +112,6 @@ namespace MovieManager
                 MessageBox.Show($"Something went wrong while opening a connection tothe database: { ex.Message }");
             }
             return movies;
-        }
+        }*/
     }
 }
