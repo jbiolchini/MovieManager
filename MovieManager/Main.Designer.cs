@@ -76,14 +76,14 @@ namespace MovieManager
             // menuItemRefresh
             // 
             this.menuItemRefresh.Name = "menuItemRefresh";
-            this.menuItemRefresh.Size = new System.Drawing.Size(180, 22);
+            this.menuItemRefresh.Size = new System.Drawing.Size(113, 22);
             this.menuItemRefresh.Text = "Refresh";
             this.menuItemRefresh.Click += new System.EventHandler(this.menuItemRefresh_Click);
             // 
             // menuItemExit
             // 
             this.menuItemExit.Name = "menuItemExit";
-            this.menuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.menuItemExit.Size = new System.Drawing.Size(113, 22);
             this.menuItemExit.Text = "Exit";
             this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
@@ -132,18 +132,6 @@ namespace MovieManager
             this.DGVMain.Name = "DGVMain";
             this.DGVMain.Size = new System.Drawing.Size(520, 279);
             this.DGVMain.TabIndex = 1;
-            // 
-            // formMainBindingSource1
-            // 
-            this.formMainBindingSource1.DataSource = typeof(MovieManager.FormMain);
-            // 
-            // formMainBindingSource
-            // 
-            this.formMainBindingSource.DataSource = typeof(MovieManager.FormMain);
-            // 
-            // formMainBindingSource2
-            // 
-            this.formMainBindingSource2.DataSource = typeof(MovieManager.FormMain);
             // 
             // FormMain
             // 
