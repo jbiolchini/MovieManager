@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionStringSettings.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="UpdateMovie.cs">
       <SubType>Form</SubType>

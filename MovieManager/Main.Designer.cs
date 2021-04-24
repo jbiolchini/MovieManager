@@ -59,8 +59,8 @@ namespace MovieManager
             this.menuItemAbout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(600, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1408, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,20 +70,20 @@ namespace MovieManager
             this.menuItemRefresh,
             this.menuItemExit});
             this.menuItemFile.Name = "menuItemFile";
-            this.menuItemFile.Size = new System.Drawing.Size(37, 20);
+            this.menuItemFile.Size = new System.Drawing.Size(46, 24);
             this.menuItemFile.Text = "File";
             // 
             // menuItemRefresh
             // 
             this.menuItemRefresh.Name = "menuItemRefresh";
-            this.menuItemRefresh.Size = new System.Drawing.Size(113, 22);
+            this.menuItemRefresh.Size = new System.Drawing.Size(141, 26);
             this.menuItemRefresh.Text = "Refresh";
             this.menuItemRefresh.Click += new System.EventHandler(this.menuItemRefresh_Click);
             // 
             // menuItemExit
             // 
             this.menuItemExit.Name = "menuItemExit";
-            this.menuItemExit.Size = new System.Drawing.Size(113, 22);
+            this.menuItemExit.Size = new System.Drawing.Size(141, 26);
             this.menuItemExit.Text = "Exit";
             this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
@@ -94,54 +94,56 @@ namespace MovieManager
             this.menuItemUpdateMovie,
             this.menuItemDeleteMovie});
             this.menuItemMaintenance.Name = "menuItemMaintenance";
-            this.menuItemMaintenance.Size = new System.Drawing.Size(88, 20);
+            this.menuItemMaintenance.Size = new System.Drawing.Size(108, 24);
             this.menuItemMaintenance.Text = "Maintenance";
             // 
             // menuItemAddMovie
             // 
             this.menuItemAddMovie.Name = "menuItemAddMovie";
-            this.menuItemAddMovie.Size = new System.Drawing.Size(148, 22);
+            this.menuItemAddMovie.Size = new System.Drawing.Size(186, 26);
             this.menuItemAddMovie.Text = "Add Movie";
             this.menuItemAddMovie.Click += new System.EventHandler(this.addMovieToolStripMenuItem_Click);
             // 
             // menuItemUpdateMovie
             // 
             this.menuItemUpdateMovie.Name = "menuItemUpdateMovie";
-            this.menuItemUpdateMovie.Size = new System.Drawing.Size(148, 22);
+            this.menuItemUpdateMovie.Size = new System.Drawing.Size(186, 26);
             this.menuItemUpdateMovie.Text = "Update Movie";
             this.menuItemUpdateMovie.Click += new System.EventHandler(this.menuItemUpdateMovie_Click);
             // 
             // menuItemDeleteMovie
             // 
             this.menuItemDeleteMovie.Name = "menuItemDeleteMovie";
-            this.menuItemDeleteMovie.Size = new System.Drawing.Size(148, 22);
+            this.menuItemDeleteMovie.Size = new System.Drawing.Size(186, 26);
             this.menuItemDeleteMovie.Text = "Delete Movie";
             this.menuItemDeleteMovie.Click += new System.EventHandler(this.menuItemDeleteMovie_Click);
             // 
             // menuItemAbout
             // 
             this.menuItemAbout.Name = "menuItemAbout";
-            this.menuItemAbout.Size = new System.Drawing.Size(52, 20);
+            this.menuItemAbout.Size = new System.Drawing.Size(64, 24);
             this.menuItemAbout.Text = "About";
             this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
             // 
             // DGVMain
             // 
             this.DGVMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVMain.Location = new System.Drawing.Point(40, 48);
+            this.DGVMain.Location = new System.Drawing.Point(13, 32);
+            this.DGVMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DGVMain.Name = "DGVMain";
-            this.DGVMain.Size = new System.Drawing.Size(520, 279);
+            this.DGVMain.RowHeadersWidth = 51;
+            this.DGVMain.Size = new System.Drawing.Size(1382, 569);
             this.DGVMain.TabIndex = 1;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(1408, 614);
             this.Controls.Add(this.DGVMain);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
             this.Text = "Movie Manager Application";
             this.menuStrip1.ResumeLayout(false);
