@@ -52,6 +52,7 @@ namespace MovieManager
             }
             return genreString;
         }
+        //GenreString back to int to pass back into database for adding/updating movies
         public int GetGenreInt(string genreEntered)
         {
             
@@ -77,6 +78,7 @@ namespace MovieManager
             return genreint;
 
         }
+        //Connection String MAKE SURE TO CLOSE CONNECTION IN ANY OTHER CREATED METHODS
         public SqlConnection Connection()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -89,6 +91,8 @@ namespace MovieManager
             return connection;
         }
         
+        //Connects to database with connection method, receives querey string from caller, checks if it is a Select querey, or not
+        //performs the Sql command.
         public List<Movie> QueryMovieData(string queryString)
         {
             List<Movie> movies = new List<Movie>();
@@ -102,14 +106,14 @@ namespace MovieManager
                 while (reader.Read())
                 {
                     Movie movie = new Movie();
-                    movie.Title = reader[0].ToString();
-                    movie.Year = int.Parse(reader[1].ToString());
-                    movie.Director = reader[2].ToString();
-                    movie.Genre = movie.GetGenreString((int)reader[3]);
+                    Title = reader[0].ToString();
+                    Year = int.Parse(reader[1].ToString());
+                    Director = reader[2].ToString();
+                    Genre = movie.GetGenreString((int)reader[3]);
                     if (reader[4] != null)
-                        movie.RottenTomatoesScore = int.Parse(reader[4].ToString());
+                        RottenTomatoesScore = (int)reader[4];
                     if (reader[5] != null)
-                        movie.TotalEarned = decimal.Parse(reader[5].ToString());
+                        TotalEarned = (decimal)reader[5];
                     movies.Add(movie);
                 }
                 
@@ -122,6 +126,8 @@ namespace MovieManager
             return movies;
         }
         
+
+
     }
 }
 

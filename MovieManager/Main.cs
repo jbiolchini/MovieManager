@@ -14,7 +14,7 @@ namespace MovieManager
     
     public partial class FormMain : Form
     {
-        
+        //SQL command to return all movies from db with title/year/director/genre/score/revenue
         string populateString = "SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title";
         public FormMain()
         {
@@ -65,55 +65,5 @@ namespace MovieManager
         {
             Close();
         }
-       
-        // DataGridView Population Methods
-       /* public List<Movie> GetMovieData()
-        {
-            List<Movie> movies = new List<Movie>();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(
-                    @"Data Source=coursemaster1.csbchotp6tva.us-east-2.rds.amazonaws.com,1433;Initial Catalog=CSCI1630;User ID=rw1630;Password=Project!;"))
-                using (SqlCommand command = new SqlCommand(
-                    "SELECT Id, Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title", connection))
-                {
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Movie movie = new Movie();
-
-                            int titleIndex = reader.GetOrdinal(nameof(Movie.Title));
-                            movie.Title = reader.GetString(titleIndex);
-
-                            int yearIndex = reader.GetOrdinal(nameof(Movie.Year));
-                            movie.Year = reader.GetInt32(yearIndex);
-
-                            int directorIndex = reader.GetOrdinal(nameof(Movie.Director));
-                            movie.Director = reader.GetString(directorIndex);
-
-                            int genreIndex = reader.GetOrdinal(nameof(Movie.Genre));
-                            movie.Genre = movie.GetGenreString(reader.GetInt32(genreIndex));
-
-                            int scoreIndex = reader.GetOrdinal(nameof(Movie.RottenTomatoesScore));
-                            if (!reader.IsDBNull(scoreIndex))
-                                movie.RottenTomatoesScore = reader.GetInt32(scoreIndex);
-
-                            int revenueIndex = reader.GetOrdinal(nameof(Movie.TotalEarned));
-                            if (!reader.IsDBNull(revenueIndex))
-                                movie.TotalEarned = reader.GetDecimal(revenueIndex);
-
-                            movies.Add(movie);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Something went wrong while opening a connection tothe database: { ex.Message }");
-            }
-            return movies;
-        }*/
     }
 }

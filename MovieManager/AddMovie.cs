@@ -30,6 +30,7 @@ namespace MovieManager
             Close();
         }
 
+        //adds movie to database by constructing a sql statement from textboxes and passing it into Querymoviedata method
         private void btAdd_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
@@ -40,6 +41,7 @@ namespace MovieManager
             textBoxClearMethod();
         }
 
+        //method to clear textboxes
         public void textBoxClearMethod()
         {
             tbMovieTitleAdd.Text = "";
