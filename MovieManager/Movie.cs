@@ -106,14 +106,14 @@ namespace MovieManager
                 while (reader.Read())
                 {
                     Movie movie = new Movie();
-                    Title = reader[0].ToString();
-                    Year = int.Parse(reader[1].ToString());
-                    Director = reader[2].ToString();
-                    Genre = movie.GetGenreString((int)reader[3]);
+                    movie.Title = reader[0].ToString();
+                    movie.Year = int.Parse(reader[1].ToString());
+                    movie.Director = reader[2].ToString();
+                    movie.Genre = movie.GetGenreString((int)reader[3]);
                     if (reader[4] != null)
-                        RottenTomatoesScore = (int)reader[4];
+                        movie.RottenTomatoesScore = (int)reader[4];
                     if (reader[5] != null)
-                        TotalEarned = (decimal)reader[5];
+                        movie.TotalEarned = (decimal)reader[5];
                     movies.Add(movie);
                 }
                 
