@@ -21,10 +21,21 @@ namespace MovieManager
         private void btDeleteDelete_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
+            string countString = $"SELECT COUNT (*) FROM Movies WHERE Title = '{tbMovieTitleDelete.Text}'";
+            int count = movie.MovieCount(countString);
+            MessageBox.Show($"{count}");
             string deleteString = $"DELETE FROM Movies WHERE Title = '{tbMovieTitleDelete.Text}'";
-            movie.QueryMovieData(deleteString);
+            if (count == 0)
+            {
+                MessageBox.Show("Movie does not exist in the database");
+                
+            }
+            else
+            {
+                movie.QueryMovieData(deleteString);
+                MessageBox.Show("Movie Deleted");
+            }
             //Confirmatino of Movie deletion
-            MessageBox.Show("Movie Deleted");
             textBoxClearMethod();
             
         }

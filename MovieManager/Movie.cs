@@ -90,7 +90,16 @@ namespace MovieManager
             connection.Open();
             return connection;
         }
-        
+        public int MovieCount(string queryString)
+        {
+          
+            SqlConnection databaseConnection = Connection();
+            SqlCommand queryText = databaseConnection.CreateCommand();
+            queryText.CommandText = queryString;
+            int movieCount = (int)queryText.ExecuteScalar();
+            return movieCount;
+            
+        }
         //Connects to database with connection method, receives querey string from caller, checks if it is a Select querey, or not
         //performs the Sql command.
         public List<Movie> QueryMovieData(string queryString)
