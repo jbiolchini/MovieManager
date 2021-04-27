@@ -62,5 +62,17 @@ namespace MovieManager
             tbRottenTomatoesScoreDelete.Text = "";
             tbBoxOfficeEarningsDelete.Text = "";
         }
+
+        private void btFindDelete_Click(object sender, EventArgs e)
+        {
+            Movie movie = new Movie();
+            string queryExistence = $"SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies where Title = '{tbMovieTitleDelete.Text}'";
+            List<Movie> movieExists = movie.QueryMovieData(queryExistence);
+            tbYearDelete.Text = movieExists[0].Year.ToString();
+            tbDirectorDelete.Text = movieExists[0].Director;
+            comboBoxGenreDelete.Text = movieExists[0].Genre;
+            tbRottenTomatoesScoreDelete.Text = movieExists[0].RottenTomatoesScore.ToString();
+            tbBoxOfficeEarningsDelete.Text = movieExists[0].TotalEarned.ToString();
+        }
     }
 }

@@ -92,13 +92,11 @@ namespace MovieManager
         }
         public int MovieCount(string queryString)
         {
-          
             SqlConnection databaseConnection = Connection();
             SqlCommand queryText = databaseConnection.CreateCommand();
             queryText.CommandText = queryString;
             int movieCount = (int)queryText.ExecuteScalar();
             return movieCount;
-            
         }
         //Connects to database with connection method, receives querey string from caller, checks if it is a Select querey, or not
         //performs the Sql command.
@@ -110,7 +108,6 @@ namespace MovieManager
             queryText.CommandText = queryString;
             if (queryString.Contains("SELECT"))
             {
-
                 SqlDataReader reader = queryText.ExecuteReader();
                 while (reader.Read())
                 {
@@ -121,11 +118,11 @@ namespace MovieManager
                     movie.Genre = movie.GetGenreString((int)reader[3]);
                     if (reader[4] != null)
                         movie.RottenTomatoesScore = (int)reader[4];
+             
                     if (reader[5] != null)
                         movie.TotalEarned = (decimal)reader[5];
                     movies.Add(movie);
                 }
-                
             }
             else
             {
@@ -134,55 +131,5 @@ namespace MovieManager
             databaseConnection.Close();
             return movies;
         }
-        
-
-
     }
 }
-
-
-            
-            
-            /*using (SqlConnection connection = new SqlConnection(connectionString:
-                    @"Data Source=coursemaster1.csbchotp6tva.us-east-2.rds.amazonaws.com,1433;Initial Catalog=CSCI1630;User ID=rw1630;Password=Project!;"))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(queryString, connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-
-                {
-                   Movie movie = new Movie();
-
-                    int titleIndex = reader.GetOrdinal(nameof(Movie.Title));
-                    movie.Title = reader.GetString(titleIndex);
-
-                    int yearIndex = reader.GetOrdinal(nameof(Movie.Year));
-                    movie.Year = reader.GetInt32(yearIndex);
-
-                    int directorIndex = reader.GetOrdinal(nameof(Movie.Director));
-                    movie.Director = reader.GetString(directorIndex);
-
-                    int genreIndex = reader.GetOrdinal(nameof(Movie.Genre));
-                    movie.Genre = movie.GetGenreString(reader.GetInt32(genreIndex));
-
-                    int scoreIndex = reader.GetOrdinal(nameof(Movie.RottenTomatoesScore));
-                    if (!reader.IsDBNull(scoreIndex))
-                        movie.RottenTomatoesScore = reader.GetInt32(scoreIndex);
-
-                    int revenueIndex = reader.GetOrdinal(nameof(Movie.TotalEarned));
-                    if (!reader.IsDBNull(revenueIndex))
-                        movie.TotalEarned = reader.GetDecimal(revenueIndex);
-
-                    movies.Add(movie);
-                }
-                return movies;
-            }
-        }
-    }
-}*/
-
-    
-    
-

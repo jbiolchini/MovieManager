@@ -88,6 +88,7 @@ namespace MovieManager
             this.btFindDelete.TabIndex = 3;
             this.btFindDelete.Text = "Find";
             this.btFindDelete.UseVisualStyleBackColor = true;
+            this.btFindDelete.Click += new System.EventHandler(this.btFindDelete_Click);
             // 
             // labelYearDelete
             // 

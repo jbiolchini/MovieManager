@@ -21,5 +21,17 @@ namespace MovieManager
         {
 
         }
+
+        private void btFindUpdate_Click(object sender, EventArgs e)
+        {
+            Movie movie = new Movie();
+            string queryExistence = $"SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies where Title = '{tbMovieTitleUpdate.Text}'";
+            List<Movie> movieExists = movie.QueryMovieData(queryExistence);
+            tbYearUpdate.Text = movieExists[0].Year.ToString();
+            tbDirectorUpdate.Text = movieExists[0].Director;
+            comboBoxGenreUpdate.Text = movieExists[0].Genre;
+            tbRottenTomatoesScoreUpdate.Text = movieExists[0].RottenTomatoesScore.ToString();
+            tbBoxOfficeEarningsUpdate.Text = movieExists[0].TotalEarned.ToString();
+        }
     }
 }
