@@ -23,7 +23,14 @@ namespace MovieManager
             Movie movie = new Movie();
             List<Movie> movies = movie.QueryMovieData(populateString);
             DGVMain.DataSource = movies;
-            
+
+            // Format DataGridView
+            DGVMain.Columns[5].DefaultCellStyle.Format = "c";
+            DGVMain.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            DGVMain.Columns[5].HeaderText = "Box Office Earnings";
+            DGVMain.Columns[4].HeaderText = "Rotten Tomatoes Score";
+            DGVMain.Columns[0].HeaderText = "Movie Title";
+            DGVMain.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
         }
 
         // Refresh list of movies in DataGridView

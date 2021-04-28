@@ -116,10 +116,9 @@ namespace MovieManager
                     movie.Year = int.Parse(reader[1].ToString());
                     movie.Director = reader[2].ToString();
                     movie.Genre = movie.GetGenreString((int)reader[3]);
-                    if (reader[4] != null)
+                    if (!reader.IsDBNull(4))
                         movie.RottenTomatoesScore = (int)reader[4];
-             
-                    if (reader[5] != null)
+                    if (!reader.IsDBNull(5))
                         movie.TotalEarned = (decimal)reader[5];
                     movies.Add(movie);
                 }
