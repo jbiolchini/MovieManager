@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace MovieManager
 {
@@ -21,10 +22,18 @@ namespace MovieManager
         private void btDeleteDelete_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
-            string countString = $"SELECT COUNT (*) FROM Movies WHERE Title = '{tbMovieTitleDelete.Text}'";
-            int count = movie.MovieCount(countString);
+
+            SqlCommand countCommand = new SqlCommand("SELECT COUNT (*) FROM Movies WHERE Title = @Title",
+                movie.Connection());
+            countCommand.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
+
+            int count = movie.MovieCount(countCommand);
             MessageBox.Show($"{count}");
-            string deleteString = $"DELETE FROM Movies WHERE Title = '{tbMovieTitleDelete.Text}'";
+
+            SqlCommand deleteCommand = new SqlCommand("DELETE FROM Movies WHERE Title = @Title",
+                movie.Connection());
+            deleteCommand.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
+
             if (count == 0)
             {
                 MessageBox.Show("Movie does not exist in the database");
@@ -32,7 +41,7 @@ namespace MovieManager
             }
             else
             {
-                movie.QueryMovieData(deleteString);
+                movie.QueryMovieData(deleteCommand);
                 MessageBox.Show("Movie Deleted");
             }
             //Confirmatino of Movie deletion
@@ -66,7 +75,11 @@ namespace MovieManager
         private void btFindDelete_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
-            string queryExistence = $"SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies where Title = '{tbMovieTitleDelete.Text}'";
+
+            SqlCommand queryExistence = new SqlCommand("SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies where Title = @Title",
+                movie.Connection());
+            queryExistence.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
+
             List<Movie> movieExists = movie.QueryMovieData(queryExistence);
             tbYearDelete.Text = movieExists[0].Year.ToString();
             tbDirectorDelete.Text = movieExists[0].Director;

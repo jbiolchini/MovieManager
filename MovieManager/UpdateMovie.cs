@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace MovieManager
 {
@@ -25,7 +26,11 @@ namespace MovieManager
         private void btFindUpdate_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
-            string queryExistence = $"SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies where Title = '{tbMovieTitleUpdate.Text}'";
+
+            SqlCommand queryExistence = new SqlCommand("SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies where Title = @Title",
+                movie.Connection());
+            queryExistence.Parameters.AddWithValue("Title", tbMovieTitleUpdate.Text);
+
             List<Movie> movieExists = movie.QueryMovieData(queryExistence);
             tbYearUpdate.Text = movieExists[0].Year.ToString();
             tbDirectorUpdate.Text = movieExists[0].Director;

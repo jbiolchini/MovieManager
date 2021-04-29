@@ -91,14 +91,14 @@ namespace MovieManager
             connection.Open();
             return connection;
         }
-        public int MovieCount(string queryString)
+        public int MovieCount(SqlCommand countCommand)
         {
             try
             {
                 SqlConnection databaseConnection = Connection();
-                SqlCommand queryText = databaseConnection.CreateCommand();
-                queryText.CommandText = queryString;
-                int movieCount = (int)queryText.ExecuteScalar();
+                SqlCommand sqlCommand = databaseConnection.CreateCommand();
+                sqlCommand = countCommand;
+                int movieCount = (int)sqlCommand.ExecuteScalar();
                 databaseConnection.Close();
                 return movieCount;
             }
@@ -110,17 +110,17 @@ namespace MovieManager
         }
         //Connects to database with connection method, receives querey string from caller, checks if it is a Select querey, or not
         //performs the Sql command.
-        public List<Movie> QueryMovieData(string queryString)
+        public List<Movie> QueryMovieData(SqlCommand inputCommand)
         {
             List<Movie> movies = new List<Movie>();
             try
             {
                 SqlConnection databaseConnection = Connection();
-                SqlCommand queryText = databaseConnection.CreateCommand();
-                queryText.CommandText = queryString;
-                if (queryString.Contains("SELECT"))
+                SqlCommand sqlCommand = databaseConnection.CreateCommand();
+                sqlCommand = inputCommand;
+                if (sqlCommand.CommandText.Contains("SELECT"))
                 {
-                    SqlDataReader reader = queryText.ExecuteReader();
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
                     while (reader.Read())
                     {
                         Movie movie = new Movie();
@@ -137,7 +137,7 @@ namespace MovieManager
                 }
                 else
                 {
-                    queryText.ExecuteNonQuery();
+                    sqlCommand.ExecuteNonQuery();
                 }
                 databaseConnection.Close();
                 return movies;

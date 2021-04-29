@@ -34,9 +34,42 @@ namespace MovieManager
         private void btAdd_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
-            int genreInt = movie.GetGenreInt(comboBoxGenreAdd.SelectedItem.ToString());
-            string addString = $"INSERT INTO Movies VALUES('{tbMovieTitleAdd.Text}',{tbYearAdd.Text},'{tbDirectorAdd.Text}',{genreInt},{int.Parse(tbRottenTomatoesScoreAdd.Text)},{decimal.Parse(tbBoxOfficeEarningsAdd.Text)})";
-            movie.QueryMovieData(addString);
+            try
+            {
+                // check for genre category selection
+                if (comboBoxGenreAdd.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a genre category.");
+                    return;
+                }
+                int genreInt = movie.GetGenreInt(comboBoxGenreAdd.SelectedItem.ToString());
+
+                // create SqlCommand, check for null values in score and earnings
+                SqlCommand addCommand = new SqlCommand("INSERT INTO Movies (Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned) " +
+                    "VALUES(@Title, @Year, @Director, @Genre, @RottenTomatoesScore, @TotalEarned)",
+                    movie.Connection());
+                addCommand.Parameters.AddWithValue("Title", tbMovieTitleAdd.Text);
+                addCommand.Parameters.AddWithValue("Year", tbYearAdd.Text);
+                addCommand.Parameters.AddWithValue("Director", tbDirectorAdd.Text);
+                addCommand.Parameters.AddWithValue("Genre", genreInt);
+                object score = tbRottenTomatoesScoreAdd.Text;
+                if (score == null)
+                    score = DBNull.Value;
+                else score = int.Parse(tbRottenTomatoesScoreAdd.Text);
+                addCommand.Parameters.Add("RottenTomatoesScore", SqlDbType.Int).Value = score;
+                object earnings = tbBoxOfficeEarningsAdd.Text;
+                if (earnings == null)
+                    earnings = DBNull.Value;
+                else earnings = decimal.Parse(tbBoxOfficeEarningsAdd.Text);
+                addCommand.Parameters.Add("TotalEarned", SqlDbType.Decimal).Value = earnings;
+
+                movie.QueryMovieData(addCommand);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Some required fields were entered incorrectly or left blank" + ex.Message);
+                return;
+            }
             MessageBox.Show("Movie Added");
             textBoxClearMethod();
         }
@@ -48,7 +81,7 @@ namespace MovieManager
             tbYearAdd.Text = "";
             tbDirectorAdd.Text = "";
             tbRottenTomatoesScoreAdd.Text = "";
-            comboBoxGenreAdd.ResetText();
+            comboBoxGenreAdd.SelectedIndex = -1;
             tbBoxOfficeEarningsAdd.Text = "";
         }
     }

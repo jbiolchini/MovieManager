@@ -14,14 +14,17 @@ namespace MovieManager
     
     public partial class FormMain : Form
     {
-        //SQL command to return all movies from db with title/year/director/genre/score/revenue
-        string populateString = "SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title";
         public FormMain()
         {
             InitializeComponent();
             // Initial Population of DataGridView
             Movie movie = new Movie();
-            List<Movie> movies = movie.QueryMovieData(populateString);
+
+            //SQL command to return all movies from db with title/year/director/genre/score/revenue
+            SqlCommand populateMain = new SqlCommand("SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title",
+                movie.Connection());
+
+            List<Movie> movies = movie.QueryMovieData(populateMain);
             DGVMain.DataSource = movies;
 
             // Format DataGridView
@@ -37,7 +40,11 @@ namespace MovieManager
         private void menuItemRefresh_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
-            List<Movie> movies = movie.QueryMovieData(populateString);
+
+            SqlCommand populateMain = new SqlCommand("SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title",
+                movie.Connection());
+
+            List<Movie> movies = movie.QueryMovieData(populateMain);
             DGVMain.DataSource = movies;
         }
 
