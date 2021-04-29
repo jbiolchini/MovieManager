@@ -54,37 +54,33 @@ namespace MovieManager
             // 
             this.labelDeleteMovieScreen.AutoSize = true;
             this.labelDeleteMovieScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDeleteMovieScreen.Location = new System.Drawing.Point(16, 11);
-            this.labelDeleteMovieScreen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDeleteMovieScreen.Location = new System.Drawing.Point(12, 9);
             this.labelDeleteMovieScreen.Name = "labelDeleteMovieScreen";
-            this.labelDeleteMovieScreen.Size = new System.Drawing.Size(308, 36);
+            this.labelDeleteMovieScreen.Size = new System.Drawing.Size(257, 29);
             this.labelDeleteMovieScreen.TabIndex = 0;
             this.labelDeleteMovieScreen.Text = "Delete Movie Screen";
             // 
             // labelMovieTitleDelete
             // 
             this.labelMovieTitleDelete.AutoSize = true;
-            this.labelMovieTitleDelete.Location = new System.Drawing.Point(69, 78);
-            this.labelMovieTitleDelete.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMovieTitleDelete.Location = new System.Drawing.Point(52, 63);
             this.labelMovieTitleDelete.Name = "labelMovieTitleDelete";
-            this.labelMovieTitleDelete.Size = new System.Drawing.Size(80, 17);
+            this.labelMovieTitleDelete.Size = new System.Drawing.Size(62, 13);
             this.labelMovieTitleDelete.TabIndex = 1;
             this.labelMovieTitleDelete.Text = "Movie Title:";
             // 
             // tbMovieTitleDelete
             // 
-            this.tbMovieTitleDelete.Location = new System.Drawing.Point(156, 74);
-            this.tbMovieTitleDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMovieTitleDelete.Location = new System.Drawing.Point(117, 60);
             this.tbMovieTitleDelete.Name = "tbMovieTitleDelete";
-            this.tbMovieTitleDelete.Size = new System.Drawing.Size(395, 22);
+            this.tbMovieTitleDelete.Size = new System.Drawing.Size(297, 20);
             this.tbMovieTitleDelete.TabIndex = 2;
             // 
             // btFindDelete
             // 
-            this.btFindDelete.Location = new System.Drawing.Point(560, 71);
-            this.btFindDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btFindDelete.Location = new System.Drawing.Point(420, 58);
             this.btFindDelete.Name = "btFindDelete";
-            this.btFindDelete.Size = new System.Drawing.Size(100, 28);
+            this.btFindDelete.Size = new System.Drawing.Size(75, 23);
             this.btFindDelete.TabIndex = 3;
             this.btFindDelete.Text = "Find";
             this.btFindDelete.UseVisualStyleBackColor = true;
@@ -93,92 +89,92 @@ namespace MovieManager
             // labelYearDelete
             // 
             this.labelYearDelete.AutoSize = true;
-            this.labelYearDelete.Location = new System.Drawing.Point(105, 127);
-            this.labelYearDelete.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelYearDelete.Location = new System.Drawing.Point(79, 103);
             this.labelYearDelete.Name = "labelYearDelete";
-            this.labelYearDelete.Size = new System.Drawing.Size(42, 17);
+            this.labelYearDelete.Size = new System.Drawing.Size(32, 13);
             this.labelYearDelete.TabIndex = 4;
             this.labelYearDelete.Text = "Year:";
             // 
             // tbYearDelete
             // 
-            this.tbYearDelete.Location = new System.Drawing.Point(156, 123);
-            this.tbYearDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.tbYearDelete.Location = new System.Drawing.Point(117, 100);
             this.tbYearDelete.Name = "tbYearDelete";
-            this.tbYearDelete.Size = new System.Drawing.Size(153, 22);
+            this.tbYearDelete.Size = new System.Drawing.Size(116, 20);
             this.tbYearDelete.TabIndex = 5;
             // 
             // labelDirectorDelete
             // 
             this.labelDirectorDelete.AutoSize = true;
-            this.labelDirectorDelete.Location = new System.Drawing.Point(85, 176);
-            this.labelDirectorDelete.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDirectorDelete.Location = new System.Drawing.Point(64, 143);
             this.labelDirectorDelete.Name = "labelDirectorDelete";
-            this.labelDirectorDelete.Size = new System.Drawing.Size(62, 17);
+            this.labelDirectorDelete.Size = new System.Drawing.Size(47, 13);
             this.labelDirectorDelete.TabIndex = 6;
             this.labelDirectorDelete.Text = "Director:";
             // 
             // tbDirectorDelete
             // 
-            this.tbDirectorDelete.Location = new System.Drawing.Point(156, 172);
-            this.tbDirectorDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDirectorDelete.Location = new System.Drawing.Point(117, 140);
             this.tbDirectorDelete.Name = "tbDirectorDelete";
-            this.tbDirectorDelete.Size = new System.Drawing.Size(249, 22);
+            this.tbDirectorDelete.Size = new System.Drawing.Size(188, 20);
             this.tbDirectorDelete.TabIndex = 7;
             // 
             // labelGenreDelete
             // 
             this.labelGenreDelete.AutoSize = true;
-            this.labelGenreDelete.Location = new System.Drawing.Point(96, 225);
-            this.labelGenreDelete.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGenreDelete.Location = new System.Drawing.Point(72, 183);
             this.labelGenreDelete.Name = "labelGenreDelete";
-            this.labelGenreDelete.Size = new System.Drawing.Size(52, 17);
+            this.labelGenreDelete.Size = new System.Drawing.Size(39, 13);
             this.labelGenreDelete.TabIndex = 8;
             this.labelGenreDelete.Text = "Genre:";
             // 
             // comboBoxGenreDelete
             // 
             this.comboBoxGenreDelete.FormattingEnabled = true;
-            this.comboBoxGenreDelete.Location = new System.Drawing.Point(156, 222);
-            this.comboBoxGenreDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxGenreDelete.Items.AddRange(new object[] {
+            "Animation",
+            "Action",
+            "Comedy",
+            "Drama",
+            "Horror",
+            "Mystery",
+            "Romance",
+            "Science Fiction",
+            "Western"});
+            this.comboBoxGenreDelete.Location = new System.Drawing.Point(117, 180);
             this.comboBoxGenreDelete.Name = "comboBoxGenreDelete";
-            this.comboBoxGenreDelete.Size = new System.Drawing.Size(249, 24);
+            this.comboBoxGenreDelete.Size = new System.Drawing.Size(188, 21);
             this.comboBoxGenreDelete.TabIndex = 9;
             // 
             // labelRottenTomatoesScoreDelete
             // 
             this.labelRottenTomatoesScoreDelete.AutoSize = true;
-            this.labelRottenTomatoesScoreDelete.Location = new System.Drawing.Point(51, 295);
-            this.labelRottenTomatoesScoreDelete.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRottenTomatoesScoreDelete.Location = new System.Drawing.Point(38, 240);
             this.labelRottenTomatoesScoreDelete.Name = "labelRottenTomatoesScoreDelete";
-            this.labelRottenTomatoesScoreDelete.Size = new System.Drawing.Size(162, 17);
+            this.labelRottenTomatoesScoreDelete.Size = new System.Drawing.Size(123, 13);
             this.labelRottenTomatoesScoreDelete.TabIndex = 10;
             this.labelRottenTomatoesScoreDelete.Text = "Rotten Tomatoes Score:";
             // 
             // tbRottenTomatoesScoreDelete
             // 
-            this.tbRottenTomatoesScoreDelete.Location = new System.Drawing.Point(223, 292);
-            this.tbRottenTomatoesScoreDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.tbRottenTomatoesScoreDelete.Location = new System.Drawing.Point(167, 237);
             this.tbRottenTomatoesScoreDelete.Name = "tbRottenTomatoesScoreDelete";
-            this.tbRottenTomatoesScoreDelete.Size = new System.Drawing.Size(132, 22);
+            this.tbRottenTomatoesScoreDelete.Size = new System.Drawing.Size(100, 20);
             this.tbRottenTomatoesScoreDelete.TabIndex = 11;
             // 
             // labelBoxOfficeEarningsDelete
             // 
             this.labelBoxOfficeEarningsDelete.AutoSize = true;
-            this.labelBoxOfficeEarningsDelete.Location = new System.Drawing.Point(364, 295);
-            this.labelBoxOfficeEarningsDelete.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBoxOfficeEarningsDelete.Location = new System.Drawing.Point(273, 240);
             this.labelBoxOfficeEarningsDelete.Name = "labelBoxOfficeEarningsDelete";
-            this.labelBoxOfficeEarningsDelete.Size = new System.Drawing.Size(136, 17);
+            this.labelBoxOfficeEarningsDelete.Size = new System.Drawing.Size(103, 13);
             this.labelBoxOfficeEarningsDelete.TabIndex = 12;
             this.labelBoxOfficeEarningsDelete.Text = "Box Office Earnings:";
             // 
             // tbBoxOfficeEarningsDelete
             // 
-            this.tbBoxOfficeEarningsDelete.Location = new System.Drawing.Point(509, 292);
-            this.tbBoxOfficeEarningsDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.tbBoxOfficeEarningsDelete.Location = new System.Drawing.Point(382, 237);
             this.tbBoxOfficeEarningsDelete.Name = "tbBoxOfficeEarningsDelete";
-            this.tbBoxOfficeEarningsDelete.Size = new System.Drawing.Size(219, 22);
+            this.tbBoxOfficeEarningsDelete.Size = new System.Drawing.Size(165, 20);
             this.tbBoxOfficeEarningsDelete.TabIndex = 13;
             // 
             // panel1Delete
@@ -187,18 +183,16 @@ namespace MovieManager
             this.panel1Delete.Controls.Add(this.btCloseDelete);
             this.panel1Delete.Controls.Add(this.btClearDelete);
             this.panel1Delete.Controls.Add(this.btDeleteDelete);
-            this.panel1Delete.Location = new System.Drawing.Point(16, 372);
-            this.panel1Delete.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1Delete.Location = new System.Drawing.Point(12, 302);
             this.panel1Delete.Name = "panel1Delete";
-            this.panel1Delete.Size = new System.Drawing.Size(768, 70);
+            this.panel1Delete.Size = new System.Drawing.Size(576, 57);
             this.panel1Delete.TabIndex = 14;
             // 
             // btCloseDelete
             // 
-            this.btCloseDelete.Location = new System.Drawing.Point(649, 22);
-            this.btCloseDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btCloseDelete.Location = new System.Drawing.Point(487, 18);
             this.btCloseDelete.Name = "btCloseDelete";
-            this.btCloseDelete.Size = new System.Drawing.Size(100, 28);
+            this.btCloseDelete.Size = new System.Drawing.Size(75, 23);
             this.btCloseDelete.TabIndex = 2;
             this.btCloseDelete.Text = "Close";
             this.btCloseDelete.UseVisualStyleBackColor = true;
@@ -206,10 +200,9 @@ namespace MovieManager
             // 
             // btClearDelete
             // 
-            this.btClearDelete.Location = new System.Drawing.Point(140, 22);
-            this.btClearDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btClearDelete.Location = new System.Drawing.Point(105, 18);
             this.btClearDelete.Name = "btClearDelete";
-            this.btClearDelete.Size = new System.Drawing.Size(100, 28);
+            this.btClearDelete.Size = new System.Drawing.Size(75, 23);
             this.btClearDelete.TabIndex = 1;
             this.btClearDelete.Text = "Clear";
             this.btClearDelete.UseVisualStyleBackColor = true;
@@ -217,10 +210,9 @@ namespace MovieManager
             // 
             // btDeleteDelete
             // 
-            this.btDeleteDelete.Location = new System.Drawing.Point(7, 22);
-            this.btDeleteDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btDeleteDelete.Location = new System.Drawing.Point(5, 18);
             this.btDeleteDelete.Name = "btDeleteDelete";
-            this.btDeleteDelete.Size = new System.Drawing.Size(100, 28);
+            this.btDeleteDelete.Size = new System.Drawing.Size(75, 23);
             this.btDeleteDelete.TabIndex = 0;
             this.btDeleteDelete.Text = "Delete";
             this.btDeleteDelete.UseVisualStyleBackColor = true;
@@ -228,9 +220,9 @@ namespace MovieManager
             // 
             // FormDeleteMovie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.panel1Delete);
             this.Controls.Add(this.tbBoxOfficeEarningsDelete);
             this.Controls.Add(this.labelBoxOfficeEarningsDelete);
@@ -246,7 +238,7 @@ namespace MovieManager
             this.Controls.Add(this.tbMovieTitleDelete);
             this.Controls.Add(this.labelMovieTitleDelete);
             this.Controls.Add(this.labelDeleteMovieScreen);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormDeleteMovie";
             this.Text = "Delete Movie";
             this.panel1Delete.ResumeLayout(false);

@@ -33,5 +33,10 @@ namespace MovieManager
             tbRottenTomatoesScoreUpdate.Text = movieExists[0].RottenTomatoesScore.ToString();
             tbBoxOfficeEarningsUpdate.Text = movieExists[0].TotalEarned.ToString();
         }
+
+        private void btCloseUpdate_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
