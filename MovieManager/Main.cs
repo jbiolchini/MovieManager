@@ -14,23 +14,37 @@ namespace MovieManager
     
     public partial class FormMain : Form
     {
-        //SQL command to return all movies from db with title/year/director/genre/score/revenue
-        string populateString = "SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title";
         public FormMain()
         {
             InitializeComponent();
             // Initial Population of DataGridView
             Movie movie = new Movie();
-            List<Movie> movies = movie.QueryMovieData(populateString);
+
+            //SQL command to return all movies from db with title/year/director/genre/score/revenue
+            SqlCommand populateMain = new SqlCommand("SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title",
+                movie.Connection());
+
+            List<Movie> movies = movie.QueryMovieData(populateMain);
             DGVMain.DataSource = movies;
-            
+
+            // Format DataGridView
+            DGVMain.Columns[5].DefaultCellStyle.Format = "c";
+            DGVMain.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            DGVMain.Columns[5].HeaderText = "Box Office Earnings";
+            DGVMain.Columns[4].HeaderText = "Rotten Tomatoes Score";
+            DGVMain.Columns[0].HeaderText = "Movie Title";
+            DGVMain.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
         }
 
         // Refresh list of movies in DataGridView
         private void menuItemRefresh_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
-            List<Movie> movies = movie.QueryMovieData(populateString);
+
+            SqlCommand populateMain = new SqlCommand("SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title",
+                movie.Connection());
+
+            List<Movie> movies = movie.QueryMovieData(populateMain);
             DGVMain.DataSource = movies;
         }
 

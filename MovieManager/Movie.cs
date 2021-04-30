@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace MovieManager
 {
@@ -90,46 +91,63 @@ namespace MovieManager
             connection.Open();
             return connection;
         }
-        public int MovieCount(string queryString)
+        public int MovieCount(SqlCommand countCommand)
         {
-            SqlConnection databaseConnection = Connection();
-            SqlCommand queryText = databaseConnection.CreateCommand();
-            queryText.CommandText = queryString;
-            int movieCount = (int)queryText.ExecuteScalar();
-            return movieCount;
+            try
+            {
+                SqlConnection databaseConnection = Connection();
+                SqlCommand sqlCommand = databaseConnection.CreateCommand();
+                sqlCommand = countCommand;
+                int movieCount = (int)sqlCommand.ExecuteScalar();
+                databaseConnection.Close();
+                return movieCount;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Database Connection Error");
+                return 0;
+            }
         }
         //Connects to database with connection method, receives querey string from caller, checks if it is a Select querey, or not
         //performs the Sql command.
-        public List<Movie> QueryMovieData(string queryString)
+        public List<Movie> QueryMovieData(SqlCommand inputCommand)
         {
             List<Movie> movies = new List<Movie>();
-            SqlConnection databaseConnection = Connection();
-            SqlCommand queryText = databaseConnection.CreateCommand();
-            queryText.CommandText = queryString;
-            if (queryString.Contains("SELECT"))
+            try
             {
-                SqlDataReader reader = queryText.ExecuteReader();
-                while (reader.Read())
+                SqlConnection databaseConnection = Connection();
+                SqlCommand sqlCommand = databaseConnection.CreateCommand();
+                sqlCommand = inputCommand;
+                if (sqlCommand.CommandText.Contains("SELECT"))
                 {
-                    Movie movie = new Movie();
-                    movie.Title = reader[0].ToString();
-                    movie.Year = int.Parse(reader[1].ToString());
-                    movie.Director = reader[2].ToString();
-                    movie.Genre = movie.GetGenreString((int)reader[3]);
-                    if (reader[4] != null)
-                        movie.RottenTomatoesScore = (int)reader[4];
-             
-                    if (reader[5] != null)
-                        movie.TotalEarned = (decimal)reader[5];
-                    movies.Add(movie);
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Movie movie = new Movie();
+                        movie.Title = reader[0].ToString();
+                        movie.Year = int.Parse(reader[1].ToString());
+                        movie.Director = reader[2].ToString();
+                        movie.Genre = movie.GetGenreString((int)reader[3]);
+                        if (!reader.IsDBNull(4))
+                            movie.RottenTomatoesScore = (int)reader[4];
+                        if (!reader.IsDBNull(5))
+                            movie.TotalEarned = (decimal)reader[5];
+                        movies.Add(movie);
+                    }
                 }
+                else
+                {
+                    sqlCommand.ExecuteNonQuery();
+                }
+                databaseConnection.Close();
+                return movies;
             }
-            else
+            catch (Exception)
             {
-                queryText.ExecuteNonQuery();
+                MessageBox.Show("Database Connection Error");
+                movies.Add(new Movie());
+                return movies;
             }
-            databaseConnection.Close();
-            return movies;
         }
     }
 }
