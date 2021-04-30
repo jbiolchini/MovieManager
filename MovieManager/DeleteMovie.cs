@@ -13,12 +13,14 @@ namespace MovieManager
 {
     public partial class FormDeleteMovie : Form
     {
+        //initializes form
         public FormDeleteMovie()
         {
             InitializeComponent();
         }
 
-        //Deltes movie from database, pass sql statement into QueryMovieData method, 
+        //Deletes movie from database, pass sql statement into QueryMovieData method, checks for movie existence in database
+        //shows messagebox if movie doesn't exist, performs sql command
         private void btDeleteDelete_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
@@ -26,11 +28,10 @@ namespace MovieManager
                 movie.Connection());
             countCommand.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
             int count = movie.MovieCount(countCommand);
-            MessageBox.Show($"{count} instance(s) of this movie exist in the current database");
             if (count == 0)
             {
                 MessageBox.Show("Movie does not exist in the database");
-                
+                return;
             }
             else
             {
@@ -75,11 +76,16 @@ namespace MovieManager
             queryExistence.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
 
             List<Movie> movieExists = movie.QueryMovieData(queryExistence);
-            tbYearDelete.Text = movieExists[0].Year.ToString();
-            tbDirectorDelete.Text = movieExists[0].Director;
-            comboBoxGenreDelete.Text = movieExists[0].Genre;
-            tbRottenTomatoesScoreDelete.Text = movieExists[0].RottenTomatoesScore.ToString();
-            tbBoxOfficeEarningsDelete.Text = movieExists[0].TotalEarned.ToString();
+            if (!movieExists.Any())
+                MessageBox.Show("Movie does not exist in the database, please try your search again");
+            else
+            {
+                tbYearDelete.Text = movieExists[0].Year.ToString();
+                tbDirectorDelete.Text = movieExists[0].Director;
+                comboBoxGenreDelete.Text = movieExists[0].Genre;
+                tbRottenTomatoesScoreDelete.Text = movieExists[0].RottenTomatoesScore.ToString();
+                tbBoxOfficeEarningsDelete.Text = movieExists[0].TotalEarned.ToString();
+            }        
         }
     }
 }

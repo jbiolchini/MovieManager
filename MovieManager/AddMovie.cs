@@ -13,6 +13,7 @@ namespace MovieManager
 {
     public partial class FormAddMovie : Form
     {
+        //Initializes form
         public FormAddMovie()
         {
             InitializeComponent();
@@ -42,9 +43,21 @@ namespace MovieManager
                     MessageBox.Show("Please select a genre category.");
                     return;
                 }
+
+                //checks to make sure year can be parsed as an int
+                if (!int.TryParse(tbYearAdd.Text.ToString(), out int a))
+                {
+                    MessageBox.Show("Year field only accepts numeric values");
+                    tbYearAdd.Text = "";
+                    return;
+                }
+
+                //returns the integer representation of the specified genre as required by the database
                 int genreInt = movie.GetGenreInt(comboBoxGenreAdd.SelectedItem.ToString());
 
-                // create SqlCommand, check for null values in score and earnings
+                // create SqlCommand, parameterizes the SQL string to prevent injection, then checks for score/earnings null
+                //stores those properly and then parameterizes the null value or the value taht was entered. 
+                //If all tests pass, adds movie to database, and displays confirmation messagebox, followed by text boxes being cleared
                 SqlCommand addCommand = new SqlCommand("INSERT INTO Movies (Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned) " +
                     "VALUES(@Title, @Year, @Director, @Genre, @RottenTomatoesScore, @TotalEarned)",
                     movie.Connection());
@@ -53,21 +66,23 @@ namespace MovieManager
                 addCommand.Parameters.AddWithValue("Director", tbDirectorAdd.Text);
                 addCommand.Parameters.AddWithValue("Genre", genreInt);
                 object score = tbRottenTomatoesScoreAdd.Text;
-                if (score == null)
+                if ((string)score == "")
                     score = DBNull.Value;
-                else score = int.Parse(score.ToString()); ;
+                else 
+                    score = int.Parse(score.ToString());
                 addCommand.Parameters.Add("RottenTomatoesScore", SqlDbType.Int).Value = score;
                 object earnings = tbBoxOfficeEarningsAdd.Text;
-                if (earnings == null)
+                if ((string)earnings == "")
                     earnings = DBNull.Value;
-                else earnings = decimal.Parse(earnings.ToString()); 
+                else
+                    earnings = decimal.Parse(earnings.ToString());
                 addCommand.Parameters.Add("TotalEarned", SqlDbType.Decimal).Value = earnings;
-
                 movie.QueryMovieData(addCommand);
             }
-            catch (Exception ex)
+            catch (Exception inputException)
             {
-                MessageBox.Show("Error: Some required fields were entered incorrectly or left blank" + ex.Message);
+                //catches if a field was left blank (except for score and earnings, and catches if user input was inccorect
+                MessageBox.Show("Error: Some required fields were entered incorrectly or left blank " + inputException.Message);
                 return;
             }
             MessageBox.Show("Movie Added");

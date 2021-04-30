@@ -79,7 +79,7 @@ namespace MovieManager
             return genreint;
 
         }
-        //Connection String MAKE SURE TO CLOSE CONNECTION IN ANY OTHER CREATED METHODS
+        //Connection String---- MAKE SURE TO CLOSE CONNECTION IN ANY OTHER CREATED METHODS
         public SqlConnection Connection()
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -112,42 +112,55 @@ namespace MovieManager
         //performs the Sql command.
         public List<Movie> QueryMovieData(SqlCommand inputCommand)
         {
+            //new instance ofa  list of movies
             List<Movie> movies = new List<Movie>();
             try
             {
+                //establishes connection to the database
                 SqlConnection databaseConnection = Connection();
                 SqlCommand sqlCommand = databaseConnection.CreateCommand();
                 sqlCommand = inputCommand;
-                if (sqlCommand.CommandText.Contains("SELECT"))
+
+                //reads in SQL string ,if it contains a select statement performs while loop to return entire database of movies
+                try
                 {
-                    SqlDataReader reader = sqlCommand.ExecuteReader();
-                    while (reader.Read())
+                    if (sqlCommand.CommandText.Contains("SELECT"))
                     {
-                        Movie movie = new Movie();
-                        movie.Title = reader[0].ToString();
-                        movie.Year = int.Parse(reader[1].ToString());
-                        movie.Director = reader[2].ToString();
-                        movie.Genre = movie.GetGenreString((int)reader[3]);
-                        if (!reader.IsDBNull(4))
-                            movie.RottenTomatoesScore = (int)reader[4];
-                        if (!reader.IsDBNull(5))
-                            movie.TotalEarned = (decimal)reader[5];
-                        movies.Add(movie);
+                        SqlDataReader reader = sqlCommand.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            Movie movie = new Movie();
+                            movie.Title = reader[0].ToString();
+                            movie.Year = int.Parse(reader[1].ToString());
+                            movie.Director = reader[2].ToString();
+                            movie.Genre = movie.GetGenreString((int)reader[3]);
+                            if (!reader.IsDBNull(4))
+                                movie.RottenTomatoesScore = (int)reader[4];
+                            if (!reader.IsDBNull(5))
+                                movie.TotalEarned = (decimal)reader[5];
+                            movies.Add(movie);
+                        }
                     }
+                    //if not a select statement, performs ADD, UPDATE or DELETE by using the sql command
+                    else
+                    {
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                    databaseConnection.Close();
                 }
-                else
+                catch (Exception queryfailed)
                 {
-                    sqlCommand.ExecuteNonQuery();
+                    //catches if a field could not be parsed to the correct type.
+                    MessageBox.Show($"A field was entered incorrectly {queryfailed.Message}");
                 }
-                databaseConnection.Close();
-                return movies;
             }
-            catch (Exception)
+            catch (Exception connectionError)
             {
-                MessageBox.Show("Database Connection Error");
-                movies.Add(new Movie());
-                return movies;
+                //catches if there is a database connection error
+                MessageBox.Show($"Database connection errror {connectionError.Message}");
             }
+            
+            return movies;
         }
     }
 }
