@@ -24,7 +24,10 @@ namespace MovieManager
             SqlCommand populateMain = new SqlCommand("SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title",
                 movie.Connection());
 
+            //creates a list of movies by using the QueryMovieData method in Movie.cs file
             List<Movie> movies = movie.QueryMovieData(populateMain);
+
+            //creates the datagridview from the above query
             DGVMain.DataSource = movies;
 
             // Format DataGridView
@@ -40,10 +43,8 @@ namespace MovieManager
         private void menuItemRefresh_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
-
             SqlCommand populateMain = new SqlCommand("SELECT Title, Year, Director, Genre, RottenTomatoesScore, TotalEarned FROM Movies ORDER BY Title",
                 movie.Connection());
-
             List<Movie> movies = movie.QueryMovieData(populateMain);
             DGVMain.DataSource = movies;
         }
@@ -61,6 +62,7 @@ namespace MovieManager
             FormUpdateMovie updateMovie = new FormUpdateMovie();
             updateMovie.ShowDialog();
         }
+
         //Launches instance of Delete Movie form when Maintenance->Delete Movie is clicked in menu
         private void menuItemDeleteMovie_Click(object sender, EventArgs e)
         {

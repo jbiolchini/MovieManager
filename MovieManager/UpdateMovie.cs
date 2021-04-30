@@ -43,5 +43,30 @@ namespace MovieManager
         {
             Close();
         }
+
+        private void btUpdateUpdate_Click(object sender, EventArgs e)
+        {
+            Movie movie = new Movie();
+            SqlCommand updateMovie = new SqlCommand($"UPDATE Movies SET Title = @Title, Year = @Year, Director = @Director, Genre=@Genre, RottenTomatoesScore = @RottenTomatoesScore, TotalEarned = @TotalEarned " +
+                $"WHERE Title ='{tbMovieTitleUpdate.Text}'", movie.Connection());
+            updateMovie.Parameters.AddWithValue("Title", tbMovieTitleUpdate.Text);
+            updateMovie.Parameters.AddWithValue("Year", tbYearUpdate.Text);
+            updateMovie.Parameters.AddWithValue("Director", tbDirectorUpdate.Text);
+            int genreInt = movie.GetGenreInt(comboBoxGenreUpdate.SelectedItem.ToString());
+            updateMovie.Parameters.AddWithValue("Genre", genreInt);
+            object score = tbRottenTomatoesScoreUpdate.Text;
+            if (score == null)
+                score = DBNull.Value;
+            else score = int.Parse(score.ToString());
+            updateMovie.Parameters.Add("RottenTomatoesScore", SqlDbType.Int).Value = score;
+            object earnings = tbBoxOfficeEarningsUpdate.Text;
+            if (earnings == null)
+                earnings = DBNull.Value;
+            else
+                earnings = decimal.Parse(earnings.ToString());
+            updateMovie.Parameters.Add("TotalEarned", SqlDbType.Decimal).Value = earnings;
+            movie.QueryMovieData(updateMovie);
+            MessageBox.Show("Movie Update Successfully");
+        }
     }
 }
