@@ -22,18 +22,11 @@ namespace MovieManager
         private void btDeleteDelete_Click(object sender, EventArgs e)
         {
             Movie movie = new Movie();
-
             SqlCommand countCommand = new SqlCommand("SELECT COUNT (*) FROM Movies WHERE Title = @Title",
                 movie.Connection());
             countCommand.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
-
             int count = movie.MovieCount(countCommand);
-            MessageBox.Show($"{count}");
-
-            SqlCommand deleteCommand = new SqlCommand("DELETE FROM Movies WHERE Title = @Title",
-                movie.Connection());
-            deleteCommand.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
-
+            MessageBox.Show($"{count} instance(s) of this movie exist in the current database");
             if (count == 0)
             {
                 MessageBox.Show("Movie does not exist in the database");
@@ -41,12 +34,13 @@ namespace MovieManager
             }
             else
             {
+                SqlCommand deleteCommand = new SqlCommand("DELETE FROM Movies WHERE Title = @Title",
+                movie.Connection());
+                deleteCommand.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
                 movie.QueryMovieData(deleteCommand);
                 MessageBox.Show("Movie Deleted");
             }
-            //Confirmatino of Movie deletion
-            textBoxClearMethod();
-            
+            textBoxClearMethod();   
         }
 
         //Clears textboxes when clear button is clicked

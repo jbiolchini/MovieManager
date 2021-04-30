@@ -55,12 +55,12 @@ namespace MovieManager
                 object score = tbRottenTomatoesScoreAdd.Text;
                 if (score == null)
                     score = DBNull.Value;
-                else score = int.Parse(tbRottenTomatoesScoreAdd.Text);
+                else score = int.Parse(score.ToString()); ;
                 addCommand.Parameters.Add("RottenTomatoesScore", SqlDbType.Int).Value = score;
                 object earnings = tbBoxOfficeEarningsAdd.Text;
                 if (earnings == null)
                     earnings = DBNull.Value;
-                else earnings = decimal.Parse(tbBoxOfficeEarningsAdd.Text);
+                else earnings = decimal.Parse(earnings.ToString()); 
                 addCommand.Parameters.Add("TotalEarned", SqlDbType.Decimal).Value = earnings;
 
                 movie.QueryMovieData(addCommand);
