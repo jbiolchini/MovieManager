@@ -54,37 +54,33 @@ namespace MovieManager
             // 
             this.labelUpdateMovieScreen.AutoSize = true;
             this.labelUpdateMovieScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUpdateMovieScreen.Location = new System.Drawing.Point(16, 11);
-            this.labelUpdateMovieScreen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelUpdateMovieScreen.Location = new System.Drawing.Point(12, 9);
             this.labelUpdateMovieScreen.Name = "labelUpdateMovieScreen";
-            this.labelUpdateMovieScreen.Size = new System.Drawing.Size(320, 36);
+            this.labelUpdateMovieScreen.Size = new System.Drawing.Size(264, 29);
             this.labelUpdateMovieScreen.TabIndex = 0;
             this.labelUpdateMovieScreen.Text = "Update Movie Screen";
             // 
             // labelMovieTitleUpdate
             // 
             this.labelMovieTitleUpdate.AutoSize = true;
-            this.labelMovieTitleUpdate.Location = new System.Drawing.Point(69, 78);
-            this.labelMovieTitleUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMovieTitleUpdate.Location = new System.Drawing.Point(52, 63);
             this.labelMovieTitleUpdate.Name = "labelMovieTitleUpdate";
-            this.labelMovieTitleUpdate.Size = new System.Drawing.Size(80, 17);
+            this.labelMovieTitleUpdate.Size = new System.Drawing.Size(62, 13);
             this.labelMovieTitleUpdate.TabIndex = 1;
             this.labelMovieTitleUpdate.Text = "Movie Title:";
             // 
             // tbMovieTitleUpdate
             // 
-            this.tbMovieTitleUpdate.Location = new System.Drawing.Point(156, 74);
-            this.tbMovieTitleUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMovieTitleUpdate.Location = new System.Drawing.Point(117, 60);
             this.tbMovieTitleUpdate.Name = "tbMovieTitleUpdate";
-            this.tbMovieTitleUpdate.Size = new System.Drawing.Size(395, 22);
+            this.tbMovieTitleUpdate.Size = new System.Drawing.Size(297, 20);
             this.tbMovieTitleUpdate.TabIndex = 2;
             // 
             // btFindUpdate
             // 
-            this.btFindUpdate.Location = new System.Drawing.Point(560, 71);
-            this.btFindUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btFindUpdate.Location = new System.Drawing.Point(420, 58);
             this.btFindUpdate.Name = "btFindUpdate";
-            this.btFindUpdate.Size = new System.Drawing.Size(100, 28);
+            this.btFindUpdate.Size = new System.Drawing.Size(75, 23);
             this.btFindUpdate.TabIndex = 3;
             this.btFindUpdate.Text = "Find";
             this.btFindUpdate.UseVisualStyleBackColor = true;
@@ -93,46 +89,41 @@ namespace MovieManager
             // labelYearUpdate
             // 
             this.labelYearUpdate.AutoSize = true;
-            this.labelYearUpdate.Location = new System.Drawing.Point(105, 127);
-            this.labelYearUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelYearUpdate.Location = new System.Drawing.Point(79, 103);
             this.labelYearUpdate.Name = "labelYearUpdate";
-            this.labelYearUpdate.Size = new System.Drawing.Size(42, 17);
+            this.labelYearUpdate.Size = new System.Drawing.Size(32, 13);
             this.labelYearUpdate.TabIndex = 4;
             this.labelYearUpdate.Text = "Year:";
             // 
             // tbYearUpdate
             // 
-            this.tbYearUpdate.Location = new System.Drawing.Point(156, 123);
-            this.tbYearUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbYearUpdate.Location = new System.Drawing.Point(117, 100);
             this.tbYearUpdate.Name = "tbYearUpdate";
-            this.tbYearUpdate.Size = new System.Drawing.Size(153, 22);
+            this.tbYearUpdate.Size = new System.Drawing.Size(116, 20);
             this.tbYearUpdate.TabIndex = 5;
             // 
             // labelDirectorUpdate
             // 
             this.labelDirectorUpdate.AutoSize = true;
-            this.labelDirectorUpdate.Location = new System.Drawing.Point(85, 176);
-            this.labelDirectorUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDirectorUpdate.Location = new System.Drawing.Point(64, 143);
             this.labelDirectorUpdate.Name = "labelDirectorUpdate";
-            this.labelDirectorUpdate.Size = new System.Drawing.Size(62, 17);
+            this.labelDirectorUpdate.Size = new System.Drawing.Size(47, 13);
             this.labelDirectorUpdate.TabIndex = 6;
             this.labelDirectorUpdate.Text = "Director:";
             // 
             // tbDirectorUpdate
             // 
-            this.tbDirectorUpdate.Location = new System.Drawing.Point(156, 172);
-            this.tbDirectorUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbDirectorUpdate.Location = new System.Drawing.Point(117, 140);
             this.tbDirectorUpdate.Name = "tbDirectorUpdate";
-            this.tbDirectorUpdate.Size = new System.Drawing.Size(249, 22);
+            this.tbDirectorUpdate.Size = new System.Drawing.Size(188, 20);
             this.tbDirectorUpdate.TabIndex = 7;
             // 
             // labelGenreUpdate
             // 
             this.labelGenreUpdate.AutoSize = true;
-            this.labelGenreUpdate.Location = new System.Drawing.Point(96, 225);
-            this.labelGenreUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelGenreUpdate.Location = new System.Drawing.Point(72, 183);
             this.labelGenreUpdate.Name = "labelGenreUpdate";
-            this.labelGenreUpdate.Size = new System.Drawing.Size(52, 17);
+            this.labelGenreUpdate.Size = new System.Drawing.Size(39, 13);
             this.labelGenreUpdate.TabIndex = 8;
             this.labelGenreUpdate.Text = "Genre:";
             // 
@@ -149,46 +140,41 @@ namespace MovieManager
             "Romance",
             "Science Fiction",
             "Western"});
-            this.comboBoxGenreUpdate.Location = new System.Drawing.Point(156, 222);
-            this.comboBoxGenreUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxGenreUpdate.Location = new System.Drawing.Point(117, 180);
             this.comboBoxGenreUpdate.Name = "comboBoxGenreUpdate";
-            this.comboBoxGenreUpdate.Size = new System.Drawing.Size(249, 24);
+            this.comboBoxGenreUpdate.Size = new System.Drawing.Size(188, 21);
             this.comboBoxGenreUpdate.TabIndex = 9;
             // 
             // labelRottenTomatoesScoreUpdate
             // 
             this.labelRottenTomatoesScoreUpdate.AutoSize = true;
-            this.labelRottenTomatoesScoreUpdate.Location = new System.Drawing.Point(51, 295);
-            this.labelRottenTomatoesScoreUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRottenTomatoesScoreUpdate.Location = new System.Drawing.Point(38, 240);
             this.labelRottenTomatoesScoreUpdate.Name = "labelRottenTomatoesScoreUpdate";
-            this.labelRottenTomatoesScoreUpdate.Size = new System.Drawing.Size(162, 17);
+            this.labelRottenTomatoesScoreUpdate.Size = new System.Drawing.Size(123, 13);
             this.labelRottenTomatoesScoreUpdate.TabIndex = 10;
             this.labelRottenTomatoesScoreUpdate.Text = "Rotten Tomatoes Score:";
             // 
             // tbRottenTomatoesScoreUpdate
             // 
-            this.tbRottenTomatoesScoreUpdate.Location = new System.Drawing.Point(223, 292);
-            this.tbRottenTomatoesScoreUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbRottenTomatoesScoreUpdate.Location = new System.Drawing.Point(167, 237);
             this.tbRottenTomatoesScoreUpdate.Name = "tbRottenTomatoesScoreUpdate";
-            this.tbRottenTomatoesScoreUpdate.Size = new System.Drawing.Size(132, 22);
+            this.tbRottenTomatoesScoreUpdate.Size = new System.Drawing.Size(100, 20);
             this.tbRottenTomatoesScoreUpdate.TabIndex = 11;
             // 
             // labelBoxOfficeEarningsUpdate
             // 
             this.labelBoxOfficeEarningsUpdate.AutoSize = true;
-            this.labelBoxOfficeEarningsUpdate.Location = new System.Drawing.Point(364, 295);
-            this.labelBoxOfficeEarningsUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBoxOfficeEarningsUpdate.Location = new System.Drawing.Point(273, 240);
             this.labelBoxOfficeEarningsUpdate.Name = "labelBoxOfficeEarningsUpdate";
-            this.labelBoxOfficeEarningsUpdate.Size = new System.Drawing.Size(136, 17);
+            this.labelBoxOfficeEarningsUpdate.Size = new System.Drawing.Size(103, 13);
             this.labelBoxOfficeEarningsUpdate.TabIndex = 12;
             this.labelBoxOfficeEarningsUpdate.Text = "Box Office Earnings:";
             // 
             // tbBoxOfficeEarningsUpdate
             // 
-            this.tbBoxOfficeEarningsUpdate.Location = new System.Drawing.Point(509, 292);
-            this.tbBoxOfficeEarningsUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBoxOfficeEarningsUpdate.Location = new System.Drawing.Point(382, 237);
             this.tbBoxOfficeEarningsUpdate.Name = "tbBoxOfficeEarningsUpdate";
-            this.tbBoxOfficeEarningsUpdate.Size = new System.Drawing.Size(219, 22);
+            this.tbBoxOfficeEarningsUpdate.Size = new System.Drawing.Size(165, 20);
             this.tbBoxOfficeEarningsUpdate.TabIndex = 13;
             // 
             // panel1Update
@@ -197,18 +183,16 @@ namespace MovieManager
             this.panel1Update.Controls.Add(this.btCloseUpdate);
             this.panel1Update.Controls.Add(this.btClearUpdate);
             this.panel1Update.Controls.Add(this.btUpdateUpdate);
-            this.panel1Update.Location = new System.Drawing.Point(16, 372);
-            this.panel1Update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1Update.Location = new System.Drawing.Point(12, 302);
             this.panel1Update.Name = "panel1Update";
-            this.panel1Update.Size = new System.Drawing.Size(768, 70);
+            this.panel1Update.Size = new System.Drawing.Size(576, 57);
             this.panel1Update.TabIndex = 14;
             // 
             // btCloseUpdate
             // 
-            this.btCloseUpdate.Location = new System.Drawing.Point(649, 22);
-            this.btCloseUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btCloseUpdate.Location = new System.Drawing.Point(487, 18);
             this.btCloseUpdate.Name = "btCloseUpdate";
-            this.btCloseUpdate.Size = new System.Drawing.Size(100, 28);
+            this.btCloseUpdate.Size = new System.Drawing.Size(75, 23);
             this.btCloseUpdate.TabIndex = 2;
             this.btCloseUpdate.Text = "Close";
             this.btCloseUpdate.UseVisualStyleBackColor = true;
@@ -216,20 +200,19 @@ namespace MovieManager
             // 
             // btClearUpdate
             // 
-            this.btClearUpdate.Location = new System.Drawing.Point(140, 22);
-            this.btClearUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btClearUpdate.Location = new System.Drawing.Point(105, 18);
             this.btClearUpdate.Name = "btClearUpdate";
-            this.btClearUpdate.Size = new System.Drawing.Size(100, 28);
+            this.btClearUpdate.Size = new System.Drawing.Size(75, 23);
             this.btClearUpdate.TabIndex = 1;
             this.btClearUpdate.Text = "Clear";
             this.btClearUpdate.UseVisualStyleBackColor = true;
+            this.btClearUpdate.Click += new System.EventHandler(this.btClearUpdate_Click);
             // 
             // btUpdateUpdate
             // 
-            this.btUpdateUpdate.Location = new System.Drawing.Point(7, 22);
-            this.btUpdateUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btUpdateUpdate.Location = new System.Drawing.Point(5, 18);
             this.btUpdateUpdate.Name = "btUpdateUpdate";
-            this.btUpdateUpdate.Size = new System.Drawing.Size(100, 28);
+            this.btUpdateUpdate.Size = new System.Drawing.Size(75, 23);
             this.btUpdateUpdate.TabIndex = 0;
             this.btUpdateUpdate.Text = "Update";
             this.btUpdateUpdate.UseVisualStyleBackColor = true;
@@ -237,9 +220,9 @@ namespace MovieManager
             // 
             // FormUpdateMovie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.panel1Update);
             this.Controls.Add(this.tbBoxOfficeEarningsUpdate);
             this.Controls.Add(this.labelBoxOfficeEarningsUpdate);
@@ -255,7 +238,7 @@ namespace MovieManager
             this.Controls.Add(this.tbMovieTitleUpdate);
             this.Controls.Add(this.labelMovieTitleUpdate);
             this.Controls.Add(this.labelUpdateMovieScreen);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormUpdateMovie";
             this.Text = "Update Movie";
             this.Load += new System.EventHandler(this.UpdateMovie_Load);

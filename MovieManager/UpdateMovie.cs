@@ -41,7 +41,8 @@ namespace MovieManager
                 comboBoxGenreUpdate.Text = movieExists[0].Genre;
                 tbRottenTomatoesScoreUpdate.Text = movieExists[0].RottenTomatoesScore.ToString();
                 tbBoxOfficeEarningsUpdate.Text = movieExists[0].TotalEarned.ToString();
-            }        
+            }  
+            
         }
 
         //Closes instance of Update Movie Form
@@ -105,7 +106,21 @@ namespace MovieManager
                     MessageBox.Show($"Error: At least one field was entered incorrectly {inputException.Message}");
                 }
              }
+            textBoxClearMethod();
+        }
 
+        private void btClearUpdate_Click(object sender, EventArgs e)
+        {
+            textBoxClearMethod();
+        }
+        public void textBoxClearMethod()
+        {
+            tbMovieTitleUpdate.Text = "";
+            tbYearUpdate.Text = "";
+            tbDirectorUpdate.Text = "";
+            comboBoxGenreUpdate.ResetText();
+            tbRottenTomatoesScoreUpdate.Text = "";
+            tbBoxOfficeEarningsUpdate.Text = "";
         }
     }
 }

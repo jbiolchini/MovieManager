@@ -44,7 +44,7 @@ namespace MovieManager
             this.RTBAbout.TabIndex = 0;
             this.RTBAbout.TabStop = false;
             this.RTBAbout.Text = "Movie Manager Application\n\nThis application displays and manages a database of Mo" +
-    "vies.\n\nAuthor:\t\tGeorge, Nick and Jack\nDate:\t\t04/17/2021\nVersion:\t0.1";
+    "vies.\n\nAuthor:\t\tGeorge, Nick and Jack\nDate:\t\t05/03/2021\nVersion:\t1.0";
             // 
             // btnClose
             // 
