@@ -28,18 +28,24 @@ namespace MovieManager
                 movie.Connection());
             countCommand.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
             int count = movie.MovieCount(countCommand);
+            DialogResult selectedOption = MessageBox.Show("Are you sure you want to delete this movie?","Delete", MessageBoxButtons.YesNo);
             if (count == 0)
             {
                 MessageBox.Show("Movie does not exist in the database");
                 return;
             }
-            else
+            else if (selectedOption == DialogResult.Yes)
             {
                 SqlCommand deleteCommand = new SqlCommand("DELETE FROM Movies WHERE Title = @Title",
                 movie.Connection());
                 deleteCommand.Parameters.AddWithValue("Title", tbMovieTitleDelete.Text);
                 movie.QueryMovieData(deleteCommand);
                 MessageBox.Show("Movie Deleted");
+            }
+            else
+            {
+             textBoxClearMethod();
+             return;
             }
             textBoxClearMethod();   
         }
